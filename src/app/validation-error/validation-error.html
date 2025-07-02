@@ -1,0 +1,9 @@
+@if (errors()) {
+<div class="invalid-feedback">
+  @if (errors()!['required']) {
+  <p>The title is required</p>
+  } @if(errors()!['minlength']) {
+  <p>The title must have a minimum of 3 characters</p>
+  }
+</div>
+} {{errors() | json}}

@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+  <div class="grid">
+    <div class="g-col-12 form-group">
+      <label for="firstname" class="form-label">Lastname</label>
+      <input
+        id="firstname"
+        class="form-control"
+        formControlName="fistName"
+        [class.is-invalid]="controls['fistName'].invalid 
+                             && (controls['fistName'].touched || controls['fistName'].dirty)"
+      />
+      <app-validation-error
+        [inputField]="controls['fistName']"
+      ></app-validation-error>
+    </div>
+    <div class="g-col-12 form-group">
+      <label for="lastname" class="form-label">Lastname</label>
+      <input id="lastname" class="form-control" formControlName="lastName" />
+    </div>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+@import '../node_modules/bootstrap/scss/functions';
+
+$enable-cssgrid: true;
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+input {
+  width: 100%;
+}
+
+label:has(+ input:required)::after {
+  content: ' *';
+}
+

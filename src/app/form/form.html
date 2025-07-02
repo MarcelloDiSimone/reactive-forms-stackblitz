@@ -1,0 +1,13 @@
+<form [formGroup]="form" (submit)="submit()">
+  <div class="d-flex flex-column gap-4 m-3">
+    <app-user formGroupName="user"></app-user>
+    <app-address formGroupName="address"></app-address>
+    <app-keywords formGroupName="keywords"></app-keywords>
+    <app-languages></app-languages>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+        Absenden
+      </button>
+    </div>
+  </div>
+</form>

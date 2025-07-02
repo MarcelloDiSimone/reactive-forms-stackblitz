@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+  <div class="grid gap-4">
+    <div class="g-col-9">
+      <label for="street" class="form-label">Street</label>
+      <input id="street" class="form-control" formControlName="street" />
+    </div>
+    <div class="g-col-3">
+      <label for="number" class="form-label">Number</label>
+      <input id="number" class="form-control" formControlName="number" />
+    </div>
+    <div class="g-col-3">
+      <label for="zip" class="form-label">ZIP</label>
+      <input id="zip" class="form-control" formControlName="zip" />
+    </div>
+    <div class="g-col-9">
+      <label for="city" class="form-label">City</label>
+      <input id="city" class="form-control" formControlName="city" />
+    </div>
+  </div>
+</form>
