@@ -1,0 +1,52 @@
+@if (currentInput && currentInput.invalid) {
+  @if (currentInput.hasError('min')) {
+    <div>
+      < {{ formName() }} must be at least {{ currentInput.errors!['min'].min }}.
+    </div>
+  }
+  @if (currentInput.hasError('max')) {
+    <div>
+      {{ formName() }} must be at most {{ currentInput.errors!['max'].max }}.
+    </div>
+  }
+  @if (currentInput.hasError('minlength')) {
+    <div>
+      {{ formName() }} must be at least
+      {{ currentInput.errors!['minlength'].requiredLength }} characters.'
+    </div>
+  }
+  @if (currentInput.hasError('maxlength')) {
+    <div>
+      {{ formName() }} must be maximal
+      {{ currentInput.errors!['minlength'].requiredLength }}
+      characters long.
+    </div>
+  }
+  @if (currentInput.hasError('required')) {
+    <div>{{ formName() }} is required.</div>
+  }
+  @if (currentInput.hasError('email')) {
+    <div>Please enter a valid email address.</div>
+  }
+  @if (currentInput.hasError('pattern')) {
+    <div>{{ formName() }} has an invalid format.</div>
+  }
+  @if (currentInput.hasError('containsUppercase')) {
+    <div>{{ formName() }} must contain uppercase characters.</div>
+  }
+  @if (currentInput.hasError('containsLowercase')) {
+    <div>{{ formName() }} must contain lowercase characters.</div>
+  }
+  @if (currentInput.hasError('containsSpecialCharacters')) {
+    <div>{{ formName() }} must contain special characters.</div>
+  }
+  @if (currentInput.hasError('containsNumbers')) {
+    <div>{{ formName() }} must contain numbers.</div>
+  }
+  @if (currentInput.hasError('isEqualWith')) {
+    <div>{{ formName() }} does not match.</div>
+  }
+  @if (currentInput.hasError('usernameExists')) {
+    <div>Username is already taken.</div>
+  }
+}

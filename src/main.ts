@@ -5,9 +5,11 @@ import { FormComponent } from './app/form/form';
 @Component({
   selector: 'app-root',
   imports: [FormComponent],
-  template: `
-    <app-form></app-form>
-  `,
+  template: `<div class="container">
+    <div class="row">
+      <div class="col"><app-form></app-form></div>
+    </div>
+  </div> `,
 })
 export class App {
   name = 'Angular';

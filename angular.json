@@ -33,7 +33,17 @@
             "polyfills": ["zone.js"],
             "scripts": [],
             "styles": ["src/global_styles.scss"],
-            "tsConfig": "tsconfig.app.json"
+            "tsConfig": "tsconfig.app.json",
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": [
+                  "mixed-decls",
+                  "color-functions",
+                  "global-builtin",
+                  "import"
+                ]
+              }
+            }
           }
         },
         "serve": {

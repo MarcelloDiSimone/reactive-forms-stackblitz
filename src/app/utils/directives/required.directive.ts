@@ -1,9 +1,9 @@
-import { Directive, ElementRef, OnInit, ViewContainerRef } from '@angular/core';
+import { Directive, ElementRef, OnInit } from '@angular/core';
 import {
+  FormControlDirective,
   FormControlName,
   NgControl,
   Validators,
-  FormControlDirective,
 } from '@angular/forms';
 
 @Directive({
@@ -11,7 +11,10 @@ import {
   standalone: true,
 })
 export class FormControlRequiredAttributeDirective implements OnInit {
-  constructor(private elementRef: ElementRef, private ngControl: NgControl) {}
+  constructor(
+    private elementRef: ElementRef,
+    private ngControl: NgControl,
+  ) {}
 
   ngOnInit(): void {
     if (

@@ -1,20 +1,49 @@
-<form [formGroup]="form">
+<form [formGroup]="form" class="needs-validation">
   <div class="grid gap-4">
-    <div class="g-col-9">
-      <label for="street" class="form-label">Street</label>
-      <input id="street" class="form-control" formControlName="street" />
+    <div class="g-col-12 form-group">
+      <label for="street" class="form-label">Address</label>
+      <textarea
+        class="form-control"
+        id="address"
+        rows="3"
+        placeholder="Enter Address"
+        name="address"
+        formControlName="address"
+        required
+      ></textarea>
+      <app-error-message formName="number"></app-error-message>
     </div>
-    <div class="g-col-3">
-      <label for="number" class="form-label">Number</label>
-      <input id="number" class="form-control" formControlName="number" />
-    </div>
-    <div class="g-col-3">
+    <div class="g-col-3 form-group">
       <label for="zip" class="form-label">ZIP</label>
-      <input id="zip" class="form-control" formControlName="zip" />
+      <input
+        id="zip"
+        class="form-control"
+        formControlName="zip"
+        placeholder="Enter postal code"
+      />
+      <app-error-message formName="zip"></app-error-message>
     </div>
-    <div class="g-col-9">
+    <div class="g-col-9 form-group">
       <label for="city" class="form-label">City</label>
-      <input id="city" class="form-control" formControlName="city" />
+      <input
+        id="city"
+        class="form-control"
+        formControlName="city"
+        placeholder="Enter your city"
+      />
+      <app-error-message formName="city"></app-error-message>
+    </div>
+    <div class="g-col-9 form-group">
+      <label for="country" class="form-label">Country</label>
+      <select id="country" class="form-select" formControlName="country">
+        <option hidden [value]="null">Select your country</option>
+        @for (country of countries; track country) {
+          <option [ngValue]="country.value">
+            {{ country.label }}
+          </option>
+        }
+      </select>
+      <app-error-message formName="country"></app-error-message>
     </div>
   </div>
 </form>

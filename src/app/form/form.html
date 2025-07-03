@@ -4,9 +4,10 @@
     <app-address formGroupName="address"></app-address>
     <app-keywords formGroupName="keywords"></app-keywords>
     <app-languages></app-languages>
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end gap-3">
+      <button type="button" class="btn btn-secondary">Cancel</button>
       <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-        Absenden
+        Submit
       </button>
     </div>
   </div>

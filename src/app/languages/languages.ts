@@ -2,19 +2,19 @@ import { Component, inject } from '@angular/core';
 import {
   ControlContainer,
   FormArray,
-  FormControl,
+  FormBuilder,
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CheckboxData } from '../../main.interface';
+import { MultiFormData } from '../utils/models/main.models';
 
-export const LANGLUAGES: string[] = [
-  'deutsch',
-  'english',
-  'spanisch',
-  'italienisch',
-  'französisch',
-  'suaheli',
+export const LANGUAGES: MultiFormData[] = [
+  { label: 'Typescript', value: 'ts' },
+  { label: 'Javascript', value: 'js' },
+  { label: 'Python', value: 'py' },
+  { label: 'C++', value: 'cpp' },
+  { label: 'Asembler', value: 'asm' },
+  { label: 'Perl', value: 'pl' },
 ];
 
 @Component({
@@ -25,15 +25,27 @@ export const LANGLUAGES: string[] = [
 })
 export class LanguagesComponent {
   private readonly controlContainer = inject(ControlContainer);
+  private readonly fb = inject(FormBuilder);
   form!: FormGroup;
 
-  languages = LANGLUAGES;
+  languages = LANGUAGES;
 
   ngOnInit(): void {
     this.form = this.controlContainer.control as FormGroup;
-    this.form.addControl(
-      'language',
-      new FormArray(this.languages.map(() => new FormControl(false)))
-    );
+    this.form.addControl('language', this.fb.array([]));
+  }
+
+  onChange(event: Event) {
+    const checkbox = event.target as HTMLInputElement;
+    const selected = this.form.get('language') as FormArray;
+
+    if (checkbox.checked) {
+      selected.push(this.fb.control(checkbox.value));
+    } else {
+      const index = selected.controls.findIndex(
+        (c) => c.value === checkbox.value,
+      );
+      if (index !== -1) selected.removeAt(index);
+    }
   }
 }
